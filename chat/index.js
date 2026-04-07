@@ -35,3 +35,8 @@ document.getElementById('send-btn').addEventListener('click', () => {
         document.getElementById('message-input').value = "";
     }
 });
+
+// 메인 페이지로 이동 버튼
+document.getElementById('home-btn').addEventListener('click', () => {
+    window.location.href = "/";
+});
