@@ -12,10 +12,9 @@ app.use('/chat', express.static('chat'));
 app.use('/liberary', express.static('liberary'));
 
 app.use('/admin', express.static('admin'));
-
 let waitingUser = null;
 let seats = Array.from({ length: 187 }, (_, i) => ({
-  id: i++,
+  id: 1+i,
   occupied: false
 }));
 

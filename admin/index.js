@@ -16,3 +16,6 @@ socket.on('seatsUpdated', (seats) => {
     container.appendChild(div);
   });
 });
+document.getElementById('home-btn').addEventListener('click', () => {
+    window.location.href = "/";
+});

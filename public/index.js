@@ -2,6 +2,12 @@ document.getElementById('chat-card').addEventListener('click', () => {
   // chat 폴더의 index.html로 이동
   window.location.href = "/chat/index.html";
 });
+document.getElementById('liberary-card').addEventListener('click', () => {
+  window.location.href = "/liberary/index.html";
+});
+document.getElementById('profile').addEventListener('click', () => {
+  window.location.href = "/admin/index.html";
+});
 // 혼잡도 데이터를 나중에 API로 받아올 수 있도록 구조 준비
 const congestionData = {
   cafeteria: "여유 있음",

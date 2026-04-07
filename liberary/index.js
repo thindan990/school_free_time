@@ -38,3 +38,6 @@ function recommendSeat(seats) {
   candidates.sort((a, b) => Math.abs(a.id - mid) - Math.abs(b.id - mid));
   return candidates[0] || null;
 }
+document.getElementById('home-btn').addEventListener('click', () => {
+    window.location.href = "/";
+});
