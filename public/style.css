@@ -56,7 +56,61 @@ nav a {
   cursor: pointer;
   border: 2px solid #ffb74d;
 }
+.congestion {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff3e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
+.congestion h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.congestion-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.congestion-item:last-child {
+  border-bottom: none;
+}
+
+.level {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.level.low {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.level.medium {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.level.high {
+  background-color: #ffcdd2;
+  color: #c62828;
+}
+.congestion-count {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.congestion-count .number {
+  color: #1565c0;
+}
 footer {
   text-align: center;
   padding: 15px;
