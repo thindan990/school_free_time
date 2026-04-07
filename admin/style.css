@@ -1,0 +1,25 @@
+#seat-map {
+  display: grid;
+  grid-template-columns: repeat(20, 30px);
+  gap: 5px;
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.seat.free {
+  background-color: #c8e6c9;
+}
+
+.seat.occupied {
+  background-color: #ffcdd2;
+}
