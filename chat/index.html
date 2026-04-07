@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>랜덤 채팅</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>랜덤 채팅</h1>
+  </header>
+
+  <section id="chat-container">
+    <div id="status">상대방을 찾는 중...</div>
+    <div id="chat-box"></div>
+    <div id="input-area">
+      <input id="message-input" type="text" placeholder="메시지를 입력하세요">
+      <button id="send-btn">전송</button>
+    </div>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
