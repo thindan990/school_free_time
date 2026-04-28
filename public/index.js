@@ -6,7 +6,7 @@ document.getElementById('liberary-card').addEventListener('click', () => {
   window.location.href = "/liberary/index.html";
 });
 document.getElementById('profile').addEventListener('click', () => {
-  window.location.href = "/admin/index.html";
+  window.location.href = "/login/index.html";
 });
 // 혼잡도 데이터를 나중에 API로 받아올 수 있도록 구조 준비
 const congestionData = {
