@@ -2,14 +2,12 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-const db = require('./db');
+const { userDB, seatDB } = require('./db');
 
 // 메인 UI
 app.use(express.static('public'));
-
-// 랜덤채팅 UI
 app.use('/chat', express.static('chat'));
-app.use('/liberary', express.static('liberary'));
+app.use('/lib', express.static('lib'));
 app.use('/admin', express.static('admin'));
 app.use('/login', express.static('login'));
 let waitingUser = null;
@@ -37,7 +35,7 @@ io.on('connection', (socket) => {
   console.log('사용자 접속:', socket.id);
 
   socket.on('login', ({ username, password }) => {
-    db.get(`SELECT * FROM users WHERE username = ? AND password = ?`, [username, password], (err, row) => {
+    userDB.get(`SELECT * FROM users WHERE username = ? AND password = ?`, [username, password], (err, row) => {
       if (row) {
         socket.emit('loginResult', { success: true, role: row.role });
       } else {
@@ -48,7 +46,7 @@ io.on('connection', (socket) => {
 
   // 좌석 현황 요청
   socket.on('getSeats', () => {
-    db.all(`SELECT * FROM seats`, (err, rows) => {
+    seatDB.all(`SELECT * FROM seats`, (err, rows) => {
       if (err) return console.error(err);
       socket.emit('seatsUpdated', buildSeatLayout(rows));
     });
@@ -56,9 +54,9 @@ io.on('connection', (socket) => {
 
   // 좌석 업데이트 (관리자)
   socket.on('updateSeat', ({ id, occupied }) => {
-    db.run(`UPDATE seats SET occupied = ? WHERE id = ?`, [occupied ? 1 : 0, id], (err) => {
+    seatDB.run(`UPDATE seats SET occupied = ? WHERE id = ?`, [occupied ? 1 : 0, id], (err) => {
       if (err) return console.error(err);
-      db.all(`SELECT * FROM seats`, (err, rows) => {
+      seatDB.all(`SELECT * FROM seats`, (err, rows) => {
         if (err) return console.error(err);
         io.emit('seatsUpdated', buildSeatLayout(rows));
       });

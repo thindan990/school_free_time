@@ -3,7 +3,7 @@ document.getElementById('chat-card').addEventListener('click', () => {
   window.location.href = "/chat/index.html";
 });
 document.getElementById('liberary-card').addEventListener('click', () => {
-  window.location.href = "/liberary/index.html";
+  window.location.href = "/lib/index.html";
 });
 document.getElementById('profile').addEventListener('click', () => {
   window.location.href = "/login/index.html";
